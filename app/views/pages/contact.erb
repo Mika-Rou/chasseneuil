@@ -1,0 +1,18 @@
+<h1> contact page</h1>
+
+<% members = ["valentin", "milan", "edouard", "mika"] %>
+
+<h2>Meet our team</h2>
+<ol>
+  <% members.each do |member| %>
+   <li><%= member.capitalize %></li>
+  <% end %>
+</ol>
+
+<!-- app/views/pages/contact.html.erb -->
+<form action="/contact" method="get">
+  <input type="text" name="member" value="<%= params[:member] %>" placeholder="Who are you looking for?">
+  <input type="submit">
+</form>
+
+<p><%= link_to "Retour à l'accueil", root_path %></p>
