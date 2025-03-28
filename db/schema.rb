@@ -10,92 +10,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_03_26_090322) do
-  define_bookings_table
-  define_payments_table
-  define_properties_table
-  define_reviews_table
-  define_users_table
-  define_foreign_keys
-end
-
-private
-
-def define_bookings_table
-  create_table 'bookings', force: :cascade do |t|
-    t.integer 'user_id', null: false
-    t.integer 'property_id', null: false
-    t.string 'status'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['property_id'], name: 'index_bookings_on_property_id'
-    t.index ['user_id'], name: 'index_bookings_on_user_id'
+ActiveRecord::Schema[7.1].define(version: 2025_03_28_153556) do
+  create_table "bookings", force: :cascade do |t|
+    t.date "start_date"
+    t.date "end_date"
+    t.string "status"
+    t.integer "user_id", null: false
+    t.integer "property_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["property_id"], name: "index_bookings_on_property_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
   end
-end
 
-def define_payments_table
-  create_table 'payments', force: :cascade do |t|
-    add_payment_columns(t)
-    add_payment_indexes(t)
+  create_table "properties", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "address"
+    t.integer "price_per_night"
+    t.integer "max_guests"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
-end
 
-def add_payment_columns(t)
-  t.integer 'user_id', null: false
-  t.integer 'booking_id', null: false
-  t.integer 'amount'
-  t.string 'payment_method'
-  t.string 'status'
-  t.datetime 'created_at', null: false
-  t.datetime 'updated_at', null: false
-end
-
-def add_payment_indexes(t)
-  t.index ['booking_id'], name: 'index_payments_on_booking_id'
-  t.index ['user_id'], name: 'index_payments_on_user_id'
-end
-
-def define_properties_table
-  create_table 'properties', force: :cascade do |t|
-    t.string 'name'
-    t.text 'description'
-    t.string 'address'
-    t.integer 'price_per_night'
-    t.integer 'max_guests'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "reviews", force: :cascade do |t|
+    t.integer "rating"
+    t.text "comment"
+    t.integer "user_id", null: false
+    t.integer "property_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["property_id"], name: "index_reviews_on_property_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
-end
 
-def define_reviews_table
-  create_table 'reviews', force: :cascade do |t|
-    t.integer 'user_id', null: false
-    t.integer 'property_id', null: false
-    t.integer 'rating'
-    t.text 'comment'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['property_id'], name: 'index_reviews_on_property_id'
-    t.index ['user_id'], name: 'index_reviews_on_user_id'
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "email"
+    t.string "phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
-end
 
-def define_users_table
-  create_table 'users', force: :cascade do |t|
-    t.string 'name'
-    t.string 'address'
-    t.string 'email'
-    t.string 'phone'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-  end
-end
-
-def define_foreign_keys
-  add_foreign_key 'bookings', 'properties'
-  add_foreign_key 'bookings', 'users'
-  add_foreign_key 'payments', 'bookings'
-  add_foreign_key 'payments', 'users'
-  add_foreign_key 'reviews', 'properties'
-  add_foreign_key 'reviews', 'users'
+  add_foreign_key "bookings", "properties"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "reviews", "properties"
+  add_foreign_key "reviews", "users"
 end
