@@ -10,4 +10,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get 'about', to: 'pages#about', as: :about
   get 'contact', to: 'pages#contact', as: :contact
+  get 'property', to: 'pages#property', as: :property
+  get 'user', to: 'pages#user', as: :user
+  get 'review', to: 'pages#review', as: :review
 end
