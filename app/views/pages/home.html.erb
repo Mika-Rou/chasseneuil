@@ -1,6 +1,17 @@
 <!-- app/views/pages/home.html.erb -->
-<h1>Bienvenue à la maison de vacances !</h1>
-<p>Description, photos, disponibilités, tout viendra ici :)</p>
+<h1 class="text-danger text-center mt-4" style="font-size: 3rem;">Appartement chaleureux à 2 pas du Futuroscope</h1>
 
-<%= link_to "En savoir plus", about_path %>
-<%= link_to "Nous contacter", contact_path %>
+<div class="container py-5">
+  <div class="row justify-content-center text-center">
+    <div class="col-12 col-sm-6 col-md-4 mb-4">
+      <%= image_tag 'cuisine-1.png', alt: 'Description de la photo', class: 'img-fluid w-100', style: 'border-radius: 15px'%>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4 mb-4">
+      <%= image_tag 'chambre-adu-5.png', alt: 'Description de la photo', class: 'img-fluid w-100', style: 'border-radius: 15px'%>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4 mb-4">
+      <%= image_tag 'sdb-2.png', alt: 'Description de la photo', class: 'img-fluid w-100', style: 'border-radius: 15px'%>
+    </div>
+    <!-- Ajoute d'autres <div class="col-..."> pour plus de photos -->
+  </div>
+</div>

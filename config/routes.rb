@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   get 'property', to: 'pages#property', as: :property
   get 'user', to: 'pages#user', as: :user
   get 'review', to: 'pages#review', as: :review
+  get 'booking', to: 'pages#booking', as: :booking
 end

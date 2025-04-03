@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/heartcombo/simple_form.git
+  revision: c2c7faf3e532072e1ef511a97d677ae0e7c38957
+  specs:
+    simple_form (5.3.1)
+      actionpack (>= 5.2)
+      activemodel (>= 5.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -129,6 +137,8 @@ GEM
     ffi (1.17.1-x86_64-darwin)
     ffi (1.17.1-x86_64-linux-gnu)
     ffi (1.17.1-x86_64-linux-musl)
+    font-awesome-sass (6.7.2)
+      sassc (~> 2.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.7)
@@ -251,9 +261,6 @@ GEM
       sprockets-rails
       tilt
     securerandom (0.4.1)
-    simple_form (5.3.1)
-      actionpack (>= 5.2)
-      activemodel (>= 5.2)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -304,18 +311,21 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
+  activestorage
+  autoprefixer-rails
   bootsnap
   bootstrap (~> 5.2)
   cloudinary
   debug
   dotenv-rails
   faker
+  font-awesome-sass (~> 6.1)
   importmap-rails
   jbuilder
   puma (>= 5.0)
   rails (~> 7.1.5, >= 7.1.5.1)
   sassc-rails
-  simple_form
+  simple_form!
   sprockets-rails
   sqlite3 (>= 1.4)
   stimulus-rails

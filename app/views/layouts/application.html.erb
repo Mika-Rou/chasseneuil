@@ -7,10 +7,18 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:...&display=swap" rel="stylesheet">
+
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <%= yield %>
+    <header><%= render "shared/navbar" %></header>
+
+    <main>
+      <%= yield %>
+    </main>
+
+    <footer><%= render "shared/footer" %></footer>
   </body>
 </html>

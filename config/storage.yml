@@ -1,0 +1,4 @@
+# config/storage.yml
+cloudinary:
+  service: Cloudinary
+  folder: <%= Rails.env %>
